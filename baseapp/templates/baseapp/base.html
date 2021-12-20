@@ -1,0 +1,178 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Bring Your Own Beats</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="dewanwakilahmed" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Acme&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+  </head>
+
+  <body>
+    <div
+      class="
+        bg-gradient-to-r
+        from-slate-500
+        via-slate-400
+        to-slate-300
+        text-neutral-50
+        grid
+        h-screen
+        place-items-center
+        font-acme
+      "
+    >
+      <div
+        class="
+          bg-neutral-900
+          w-326
+          h-125
+          rounded-lg
+          overflow-hidden
+          flex flex-col
+        "
+      >
+        <div class="relative h-28 grid place-items-center">
+          <!-- <img
+            src="{% static 'asset/icon/hamburger-menu-icon.svg' %}"
+            class="absolute place-self-start cursor-pointer h-12 ml-5 mt-3"
+          /> -->
+          <svg
+            version="1.1"
+            id="Layer_1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px"
+            y="0px"
+            viewBox="0 0 50 50"
+            enable-background="new 0 0 50 50"
+            xml:space="preserve"
+            class="
+              absolute
+              place-self-start
+              cursor-pointer
+              h-10
+              ml-6
+              mt-4
+              fill-yellow-400
+              stroke-2
+            "
+          >
+            <path
+              d="M8.667,15h30c0.552,0,1-0.447,1-1s-0.448-1-1-1h-30c-0.552,0-1,0.447-1,1S8.114,15,8.667,15z"
+            />
+            <path
+              d="M8.667,37h30c0.552,0,1-0.447,1-1s-0.448-1-1-1h-30c-0.552,0-1,0.447-1,1S8.114,37,8.667,37z"
+            />
+            <path
+              d="M8.667,26h30c0.552,0,1-0.447,1-1s-0.448-1-1-1h-30c-0.552,0-1,0.447-1,1S8.114,26,8.667,26z"
+            />
+          </svg>
+          <h1 class="text-center text-3xl">My Profile</h1>
+        </div>
+        <div
+          class="
+            bg-gray-400
+            grow
+            grid
+            overflow-scroll
+            scroll-smooth
+            no-scrollbar
+          "
+        >
+          <div class="bg-gray-500 w-5/6 justify-self-center">
+            <div class="p-8">
+              <div class="grid grid-cols-2 text-lg">
+                <p class="justify-self-start">Novice: 10XP/99XP</p>
+                <div class="justify-self-end">20</div>
+              </div>
+              <div class="grid place-items-center">
+                <img
+                  src="{% static 'asset/image/profile-picture.jpg' %}"
+                  alt=""
+                  class="h-60 rounded-full ring-4 ring-neutral-50 mt-5"
+                />
+                <div class="mt-5 text-5xl">WestCoastMafia</div>
+                <div
+                  class="
+                    w-full
+                    bg-gray-200
+                    rounded-full
+                    h-2.5
+                    dark:bg-gray-700
+                    mt-5
+                  "
+                >
+                  <div
+                    class="bg-yellow-400 h-2.5 rounded-full"
+                    style="width: 90%"
+                  ></div>
+                </div>
+                <div class="place-self-start text-lg">50/50</div>
+              </div>
+              <div class="">
+                <div
+                  class="
+                    genre
+                    mt-6
+                    p-2
+                    hover:bg-yellow-400
+                    cursor-pointer
+                    hover:text-neutral-900
+                    rounded-lg
+                  "
+                >
+                  <p class="text-3xl">Genre</p>
+                  <p class="text-2xl">Hip hop music</p>
+                </div>
+                <div
+                  class="
+                    guild
+                    mt-6
+                    p-2
+                    hover:bg-yellow-400
+                    cursor-pointer
+                    hover:text-neutral-900
+                    rounded-lg
+                  "
+                >
+                  <p class="text-3xl">Guild</p>
+                  <p class="text-2xl">Delphinus</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="h-28">
+          <ul
+            class="
+              grid grid-cols-6
+              place-items-center
+              h-full
+              text-gray-400 text-xl
+            "
+          >
+            <li class="hover:text-yellow-400 cursor-pointer">My Profile</li>
+            <li class="hover:text-yellow-400 cursor-pointer">Guilds</li>
+            <li class="hover:text-yellow-400 cursor-pointer">Challenges</li>
+            <li class="hover:text-yellow-400 cursor-pointer">Buy In</li>
+            <li class="hover:text-yellow-400 cursor-pointer">My Beats</li>
+            <li class="hover:text-yellow-400 cursor-pointer">Battles</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
