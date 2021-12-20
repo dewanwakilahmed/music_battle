@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "start": "npx tailwindcss -i ./src/styles.css -o ../baseapp/static/css/styles.css --watch"
+  }
+}
