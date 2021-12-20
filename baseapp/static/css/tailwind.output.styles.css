@@ -813,13 +813,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   display: none;
 }
 
-/* Hide scrollbar for IE, Edge and Firefox */
-
 .no-scrollbar {
   -ms-overflow-style: none;
-  /* IE and Edge */
   scrollbar-width: none;
-  /* Firefox */
 }
 
 .hover\:bg-yellow-400:hover {
