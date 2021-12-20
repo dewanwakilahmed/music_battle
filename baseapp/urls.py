@@ -5,5 +5,6 @@ app_name = "baseapp"
 
 
 urlpatterns = [
-    path('', views.homepage, name="homepage"),
+    path('', views.homePage, name="homepage"),
+    path('admin-panel/', views.adminPanel, name="admin-panel"),
 ]

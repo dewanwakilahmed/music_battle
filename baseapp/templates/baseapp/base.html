@@ -26,6 +26,7 @@
   <body>
     <div
       class="
+        background
         bg-gradient-to-r
         from-slate-500
         via-slate-400
@@ -39,6 +40,7 @@
     >
       <div
         class="
+          dashboard
           bg-neutral-900
           w-326
           h-125
@@ -47,7 +49,7 @@
           flex flex-col
         "
       >
-        <div class="relative h-28 grid place-items-center">
+        <div class="header relative h-28 grid place-items-center">
           <!-- <img
             src="{% static 'asset/icon/hamburger-menu-icon.svg' %}"
             class="absolute place-self-start cursor-pointer h-12 ml-5 mt-3"
@@ -87,6 +89,7 @@
         </div>
         <div
           class="
+            dashboard-tab-ground
             bg-gray-400
             grow
             grid
@@ -95,62 +98,100 @@
             no-scrollbar
           "
         >
-          <div class="bg-gray-500 w-5/6 justify-self-center">
-            <div class="p-8">
-              <div class="grid grid-cols-2 text-lg">
-                <p class="justify-self-start">Novice: 10XP/99XP</p>
-                <div class="justify-self-end">20</div>
-              </div>
-              <div class="grid place-items-center">
-                <img
-                  src="{% static 'asset/image/profile-picture.jpg' %}"
-                  alt=""
-                  class="h-60 rounded-full ring-4 ring-neutral-50 mt-5"
-                />
-                <div class="mt-5 text-5xl">WestCoastMafia</div>
+          <div class="dashboard-tab bg-gray-500 w-5/6 justify-self-center p-8">
+            <div class="grid grid-cols-2 text-lg">
+              <p class="justify-self-start">Novice: 10XP/99XP</p>
+              <div class="justify-self-end">💰 20</div>
+            </div>
+            <div class="grid place-items-center">
+              <img
+                src="{% static 'asset/image/profile-picture.jpg' %}"
+                alt=""
+                class="h-60 rounded-full ring-4 ring-neutral-50 mt-5"
+              />
+              <div class="mt-5 text-5xl">WestCoastMafia</div>
+              <div
+                class="
+                  w-full
+                  bg-gray-200
+                  rounded-full
+                  h-2.5
+                  dark:bg-gray-700
+                  mt-5
+                "
+              >
                 <div
-                  class="
-                    w-full
-                    bg-gray-200
-                    rounded-full
-                    h-2.5
-                    dark:bg-gray-700
-                    mt-5
-                  "
-                >
-                  <div
-                    class="bg-yellow-400 h-2.5 rounded-full"
-                    style="width: 90%"
-                  ></div>
+                  class="bg-yellow-400 h-2.5 rounded-full flex"
+                  style="width: 90%"
+                ></div>
+              </div>
+              <div class="place-self-start text-lg flex">
+                <span class="text-red-600">&#10084;</span>
+                <p>&nbsp;&nbsp;&nbsp;50/50</p>
+              </div>
+            </div>
+            <div class="genre-guild">
+              <div
+                class="
+                  genre
+                  mt-6
+                  p-2
+                  hover:bg-yellow-400
+                  cursor-pointer
+                  hover:text-neutral-900
+                  rounded-lg
+                  flex
+                "
+              >
+                <div class="music-icon grid place-items-center mr-6">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 51.44 64"
+                    class="h-12 fill-pink-700"
+                  >
+                    <defs>
+                      <style>
+                        .cls-1 {
+                          height: 2px;
+                          width: 2px;
+                        }
+                      </style>
+                    </defs>
+                    <title>Asset 24</title>
+                    <g id="Layer_2" data-name="Layer 2">
+                      <g id="Layer_1-2" data-name="Layer 1">
+                        <path
+                          d="M51.44,11.72V45.05a4.32,4.32,0,0,1,0,.54c-.41,2.73-3.85,4.87-8.07,4.87-4.5,0-8.12-2.43-8.12-5.41s3.62-5.42,8.12-5.42A10.76,10.76,0,0,1,46,40V11.72a2.67,2.67,0,0,0-2.25-2.65L22.12,5.44a2.74,2.74,0,0,0-2.22.62A2.7,2.7,0,0,0,19,8.12V57.23a5.46,5.46,0,0,1-1.7,3.87A10.89,10.89,0,0,1,9.48,64C4.25,64,0,61,0,57.23s4.25-6.77,9.48-6.77a12.26,12.26,0,0,1,4.06.68v-43A8.11,8.11,0,0,1,23,.11L44.64,3.73A8.06,8.06,0,0,1,51.44,11.72Z"
+                        />
+                      </g>
+                    </g>
+                  </svg>
                 </div>
-                <div class="place-self-start text-lg">50/50</div>
-              </div>
-              <div class="">
-                <div
-                  class="
-                    genre
-                    mt-6
-                    p-2
-                    hover:bg-yellow-400
-                    cursor-pointer
-                    hover:text-neutral-900
-                    rounded-lg
-                  "
-                >
+                <div class="">
                   <p class="text-3xl">Genre</p>
                   <p class="text-2xl">Hip hop music</p>
                 </div>
-                <div
-                  class="
-                    guild
-                    mt-6
-                    p-2
-                    hover:bg-yellow-400
-                    cursor-pointer
-                    hover:text-neutral-900
-                    rounded-lg
-                  "
-                >
+              </div>
+              <div
+                class="
+                  guild
+                  mt-6
+                  p-2
+                  hover:bg-yellow-400
+                  cursor-pointer
+                  hover:text-neutral-900
+                  rounded-lg
+                  flex
+                "
+              >
+                <div class="guild-icon mr-1">
+                  <img
+                    class="h-14 w-14"
+                    src="{% static 'asset/icon/delphinus.png' %}"
+                    alt=""
+                  />
+                </div>
+                <div class="">
                   <p class="text-3xl">Guild</p>
                   <p class="text-2xl">Delphinus</p>
                 </div>
@@ -158,7 +199,7 @@
             </div>
           </div>
         </div>
-        <div class="h-28">
+        <div class="footer h-28">
           <ul
             class="
               grid grid-cols-6
@@ -167,12 +208,66 @@
               text-gray-400 text-xl
             "
           >
-            <li class="hover:text-yellow-400 cursor-pointer">My Profile</li>
-            <li class="hover:text-yellow-400 cursor-pointer">Guilds</li>
-            <li class="hover:text-yellow-400 cursor-pointer">Challenges</li>
-            <li class="hover:text-yellow-400 cursor-pointer">Buy In</li>
-            <li class="hover:text-yellow-400 cursor-pointer">My Beats</li>
-            <li class="hover:text-yellow-400 cursor-pointer">Battles</li>
+            <li class="hover:text-yellow-400 cursor-pointer">
+              <div class="my-profile-icon grid place-items-center">
+                <img
+                  class="h-10 w-10"
+                  src="{% static 'asset/icon/single-neutral-1.png' %}"
+                  alt=""
+                />
+              </div>
+              <p>My Profile</p>
+            </li>
+            <li class="hover:text-yellow-400 cursor-pointer">
+              <div class="my-profile-icon grid place-items-center">
+                <img
+                  class="h-10 w-10"
+                  src="{% static 'asset/icon/flag-skull.png' %}"
+                  alt=""
+                />
+              </div>
+              <p>Guilds</p>
+            </li>
+            <li class="hover:text-yellow-400 cursor-pointer">
+              <div class="my-profile-icon grid place-items-center">
+                <img
+                  class="h-10 w-10"
+                  src="{% static 'asset/icon/flags-flash.png' %}"
+                  alt=""
+                />
+              </div>
+              <p>Challenges</p>
+            </li>
+            <li class="hover:text-yellow-400 cursor-pointer">
+              <div class="my-profile-icon grid place-items-center">
+                <img
+                  class="h-10 w-10"
+                  src="{% static 'asset/icon/tags-cash.png' %}"
+                  alt=""
+                />
+              </div>
+              <p>Buy In</p>
+            </li>
+            <li class="hover:text-yellow-400 cursor-pointer">
+              <div class="my-profile-icon grid place-items-center">
+                <img
+                  class="h-10 w-12"
+                  src="{% static 'asset/icon/photography-equipment-bag.png' %}"
+                  alt=""
+                />
+              </div>
+              <p>My Tickets</p>
+            </li>
+            <li class="hover:text-yellow-400 cursor-pointer">
+              <div class="my-profile-icon grid place-items-center">
+                <img
+                  class="h-10 w-10"
+                  src="{% static 'asset/icon/trends-torch-1.png' %}"
+                  alt=""
+                />
+              </div>
+              <p>Battles</p>
+            </li>
           </ul>
         </div>
       </div>

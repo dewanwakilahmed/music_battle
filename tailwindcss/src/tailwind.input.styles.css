@@ -27,12 +27,20 @@
     width: 85.5rem;
   }
 
+  .w-340 {
+    width: 85rem;
+  }
+
   .w-366 {
     width: 91.5rem;
   }
 
   .h-125 {
     height: 37rem;
+  }
+
+  .h-160 {
+    height: 40rem;
   }
 }
 

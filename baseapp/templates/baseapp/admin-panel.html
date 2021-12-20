@@ -1,0 +1,176 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Acme&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="{% static 'css/tailwind.output.styles.css' %}"
+    />
+    <title>Admin Panel</title>
+  </head>
+  <body>
+    <div
+      class="
+        background
+        bg-gradient-to-r
+        from-rose-500
+        via-red-500
+        to-pink-500
+        text-neutral-50
+        grid
+        h-screen
+        place-items-center
+        font-acme
+      "
+    >
+      <div
+        class="
+          admin-panel
+          bg-gradient-to-r
+          from-rose-900
+          via-red-900
+          to-pink-900
+          rounded-lg
+          w-340
+          h-140
+          flex flex-col
+        "
+      >
+        <div class="header h-28 text-center grid place-items-center border-b-4">
+          <h1 class="text-5xl">ADMIN PANEL</h1>
+        </div>
+        <div class="content flex">
+          <div class="nav basis-1/6 border-r-4 p-4">
+            <ul>
+              <li
+                class="
+                  px-1.5
+                  py-1
+                  border-b-2
+                  mt-5
+                  rounded-md
+                  hover:bg-gradient-to-r
+                  from-slate-300
+                  via-gray-300
+                  to-zinc-300
+                  cursor-pointer
+                  hover:text-neutral-900
+                "
+              >
+                Dashboard
+              </li>
+              <li
+                class="
+                  px-1.5
+                  py-1
+                  border-b-2
+                  mt-10
+                  rounded-md
+                  hover:bg-gradient-to-r
+                  from-slate-300
+                  via-gray-300
+                  to-zinc-300
+                  cursor-pointer
+                  hover:text-neutral-900
+                "
+              >
+                Daily Rewards
+              </li>
+              <li
+                class="
+                  px-1.5
+                  py-1
+                  border-b-2
+                  mt-10
+                  rounded-md
+                  hover:bg-gradient-to-r
+                  from-slate-300
+                  via-gray-300
+                  to-zinc-300
+                  cursor-pointer
+                  hover:text-neutral-900
+                "
+              >
+                XP Rewards
+              </li>
+              <li
+                class="
+                  px-1.5
+                  py-1
+                  border-b-2
+                  mt-10
+                  rounded-md
+                  hover:bg-gradient-to-r
+                  from-slate-300
+                  via-gray-300
+                  to-zinc-300
+                  cursor-pointer
+                  hover:text-neutral-900
+                "
+              >
+                Ticket Purchases
+              </li>
+              <li
+                class="
+                  px-1.5
+                  py-1
+                  border-b-2
+                  mt-10
+                  rounded-md
+                  hover:bg-gradient-to-r
+                  from-slate-300
+                  via-gray-300
+                  to-zinc-300
+                  cursor-pointer
+                  hover:text-neutral-900
+                "
+              >
+                Gift Purchases
+              </li>
+              <li
+                class="
+                  px-1.5
+                  py-1
+                  border-b-2
+                  mt-10
+                  rounded-md
+                  hover:bg-gradient-to-r
+                  from-slate-300
+                  via-gray-300
+                  to-zinc-300
+                  cursor-pointer
+                  hover:text-neutral-900
+                "
+              >
+                Asset Sales
+              </li>
+            </ul>
+          </div>
+          <div
+            class="
+              content-main
+              basis-5/6
+              overflow-scroll
+              scroll-smooth
+              no-scrollbar
+              p-4
+            "
+          >
+            CONTENT MAIN
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
