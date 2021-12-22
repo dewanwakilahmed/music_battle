@@ -1,5 +1,5 @@
 {
   "scripts": {
-    "start": "npx tailwindcss -i ./src/tailwind.input.styles.css -o ../baseapp/static/css/tailwind.output.styles.css --watch"
+    "start": "npx tailwindcss -i ./src/tailwind.input.styles.css -o ../baseapp/static/baseapp/css/tailwind.output.styles.css --watch"
   }
 }

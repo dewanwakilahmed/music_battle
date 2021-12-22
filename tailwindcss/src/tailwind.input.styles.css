@@ -23,12 +23,12 @@
     width: 81.5rem;
   }
 
-  .w-342 {
-    width: 85.5rem;
-  }
-
   .w-340 {
     width: 85rem;
+  }
+
+  .w-342 {
+    width: 85.5rem;
   }
 
   .w-366 {
@@ -39,8 +39,8 @@
     height: 37rem;
   }
 
-  .h-160 {
-    height: 40rem;
+  .h-162 {
+    height: 40.5rem;
   }
 }
 
@@ -51,4 +51,159 @@
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+.dashboard-background {
+  @apply bg-gradient-to-r
+  from-slate-500
+  via-slate-400
+  to-slate-300
+  text-neutral-50
+  grid
+  h-screen
+  place-items-center
+  font-acme;
+}
+
+.dashboard {
+  @apply bg-neutral-900
+  w-340
+  h-162
+  rounded-lg
+  overflow-hidden
+  flex flex-col;
+}
+
+.dashboard-header {
+  @apply h-28 p-3 relative grid place-items-center;
+}
+
+.floating-left-menu {
+  @apply absolute place-self-start;
+}
+
+.burger-menu-icon {
+  @apply cursor-pointer h-12 ml-5 mt-4 fill-gray-400 hover:fill-yellow-400 stroke-2;
+}
+
+.selected-tab-title {
+  @apply text-center text-4xl;
+}
+
+.dashboard-content-background {
+  @apply bg-gray-400
+  grow
+  grid
+  overflow-scroll
+  scroll-smooth
+  no-scrollbar;
+}
+
+.dashboard-selected-tab-content {
+  @apply bg-gray-500 w-5/6 justify-self-center p-8;
+}
+
+.my-profile-tab {
+  @apply text-xl;
+}
+
+.rank-gold-bar {
+  @apply grid grid-cols-2;
+}
+
+.user-rank {
+  @apply justify-self-start;
+}
+
+.user-gold {
+  @apply justify-self-end;
+}
+
+.user-details-section {
+  @apply grid place-items-center;
+}
+
+.user-profile-image-container {
+  @apply rounded-full ring-4 ring-neutral-50 mt-5 overflow-hidden;
+}
+
+.user-profile-image {
+  @apply h-60;
+}
+
+.user-name {
+  @apply mt-5 text-6xl;
+}
+
+.user-status-container {
+  @apply w-full;
+}
+
+.status-bar {
+  @apply w-full rounded-full h-3 bg-gray-700 mt-5;
+}
+
+.status-bar-progress {
+  @apply bg-yellow-400 h-3 rounded-full flex;
+}
+
+.user-hp-container {
+  @apply place-self-start flex;
+}
+
+.heart-icon {
+  @apply text-red-600 text-2xl;
+}
+
+.user-preference-item-container {
+  @apply mt-6
+  p-2
+  hover:bg-yellow-400
+  cursor-pointer
+  hover:text-neutral-900
+  rounded-lg
+  flex;
+}
+
+.user-preference-item-title {
+  @apply text-3xl;
+}
+
+.user-preference-item-type {
+  @apply text-2xl;
+}
+
+.user-preference-item-icon-container {
+  @apply grid place-items-center mr-3;
+}
+
+.music-icon {
+  @apply h-14 w-14 fill-pink-700;
+}
+
+.guild-icon {
+  @apply h-14 w-14 rounded-md;
+}
+
+.dashboard-footer {
+  @apply h-28 p-3;
+}
+
+.dashboard-tab-nav {
+  @apply grid grid-cols-6
+  place-items-center
+  h-full
+  text-gray-400 text-xl;
+}
+
+.dashboard-tab {
+  @apply hover:text-yellow-400 cursor-pointer text-lg;
+}
+
+.dashboard-tab-icon-container {
+  @apply grid place-items-center;
+}
+
+.dashboard-tab-icon {
+  @apply fill-gray-400 h-8 hover:fill-yellow-400;
 }
