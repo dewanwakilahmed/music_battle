@@ -207,3 +207,66 @@
 .dashboard-tab-icon {
   @apply fill-gray-400 h-8 hover:fill-yellow-400;
 }
+
+/* ADMIN PANEL PAGE */
+
+.admin-panel-background {
+  @apply bg-gradient-to-r
+  from-rose-500
+  via-red-500
+  to-pink-500
+  text-neutral-50
+  grid
+  h-screen
+  place-items-center
+  font-acme;
+}
+
+.admin-panel {
+  @apply bg-gradient-to-r
+  from-rose-900
+  via-red-900
+  to-pink-900
+  rounded-lg
+  w-340
+  h-162
+  flex flex-col;
+}
+
+.admin-panel-header {
+  @apply h-28 text-center grid place-items-center border-b-4;
+}
+
+.admin-panel-title {
+  @apply text-5xl;
+}
+
+.admin-panel-body {
+  @apply flex text-2xl;
+}
+
+.admin-panel-nav-section {
+  @apply basis-1/6 border-r-4 p-4;
+}
+
+.admin-panel-tab {
+  @apply px-1
+  py-1
+  border-b-2
+  mt-10
+  rounded-sm
+  hover:bg-gradient-to-r
+  from-slate-300
+  via-gray-300
+  to-zinc-300
+  cursor-pointer
+  hover:text-neutral-900;
+}
+
+.admin-panel-selected-tab-content {
+  @apply basis-5/6
+  overflow-scroll
+  scroll-smooth
+  no-scrollbar
+  p-4;
+}
