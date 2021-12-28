@@ -5,7 +5,8 @@ app_name = "baseapp"
 
 
 urlpatterns = [
-    path('', views.homePage, name="homepage"),
+    path('', views.index, name='index'),
+    # path('dashboard/', views.dashboard, name='dashboard'),
     path('my-profile-tab', views.myProfileTab, name='my-profile-tab'),
     path('guilds-tab/', views.guildsTab, name='guilds-tab'),
     path('challenges-tab/', views.challengesTab, name='challenges-tab'),

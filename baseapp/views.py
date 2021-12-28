@@ -5,7 +5,7 @@ from django.contrib import messages
 # Create your views here.
 
 
-def homePage(request):
+def index(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
@@ -34,32 +34,58 @@ def homePage(request):
         #                 request, 'Account Registered! Please Login Now')
         #             return redirect('/')
     else:
-        return render(request, 'baseapp/base.html')
+        return render(request, 'baseapp/index.html')
 
+# def dashboard(request):
+#     if request.user.is_authenticated:
+#         return render(request, 'baseapp/dashboard.html')
+#     else:
+#         return redirect('/')
 
 def myProfileTab(request):
-    return render(request, 'baseapp/my-profile-tab.html')
+    if request.user.is_authenticated:
+        return render(request, 'baseapp/my-profile-tab.html')
+    else:
+        return redirect('/')
 
 
 def guildsTab(request):
-    return render(request, 'baseapp/guilds-tab.html')
+    if request.user.is_authenticated:
+        return render(request, 'baseapp/guilds-tab.html')
+    else:
+        return redirect('/')
 
 
 def challengesTab(request):
-    return render(request, 'baseapp/challenges-tab.html')
+    if request.user.is_authenticated:
+        return render(request, 'baseapp/challenges-tab.html')
+    else:
+        return redirect('/')
 
 
 def buyInTab(request):
-    return render(request, 'baseapp/buy-in-tab.html')
+    if request.user.is_authenticated:
+        return render(request, 'baseapp/buy-in-tab.html')
+    else:
+        return redirect('/')
 
 
 def myTicketsTab(request):
-    return render(request, 'baseapp/my-tickets-tab.html')
+    if request.user.is_authenticated:
+        return render(request, 'baseapp/my-tickets-tab.html')        
+    else:
+        return redirect('/')
 
 
 def battlesTab(request):
-    return render(request, 'baseapp/battles-tab.html')
+    if request.user.is_authenticated:
+        return render(request, 'baseapp/battles-tab.html')
+    else:
+        return redirect('/')
 
 
 def adminPanel(request):
-    return render(request, 'baseapp/admin-panel.html')
+    if request.user.is_authenticated:
+        return render(request, 'baseapp/admin-panel.html')
+    else:
+        return redirect('/')

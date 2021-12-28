@@ -53,6 +53,20 @@
   scrollbar-width: none;
 }
 
+/* BASE */
+
+.app-background {
+  @apply bg-gradient-to-r
+  from-slate-500
+  via-slate-400
+  to-slate-300
+  text-neutral-50
+  grid
+  h-screen
+  place-items-center
+  font-acme;
+}
+
 /* LOGIN PAGE */
 
 .login-page {
@@ -92,18 +106,6 @@
 }
 
 /* DASHBOARD PAGE */
-
-.dashboard-background {
-  @apply bg-gradient-to-r
-  from-slate-500
-  via-slate-400
-  to-slate-300
-  text-neutral-50
-  grid
-  h-screen
-  place-items-center
-  font-acme;
-}
 
 .dashboard {
   @apply bg-neutral-900
