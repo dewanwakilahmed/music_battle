@@ -7,25 +7,25 @@
 {% block tab_content %}
 <div class="my-profile-tab">
   <div class="rank-gold-bar">
-    <p class="user-rank">Novice: 10XP/99XP</p>
-    <div class="user-gold">💰 20</div>
+    <p class="user-rank">Novice: {{ user.user_xp }}XP/500XP</p>
+    <div class="user-gold">💰 {{ user.user_gold }}</div>
   </div>
   <div class="user-details-section">
     <div class="user-profile-image-container">
       <img
         class="user-profile-image"
-        src="{% static 'baseapp/asset/image/profile-picture.jpg' %}"
+        src="{{ user.user_image.url }}"
         alt="User Profile Picture"
       />
     </div>
-    <div class="user-name">WestCoastMafia</div>
+    <div class="user-name">{{ user.username }}</div>
     <div class="user-status-container">
       <div class="status-bar">
-        <div class="status-bar-progress" style="width: 40%"></div>
+        <div class="status-bar-progress" style="width: {{ user.user_hp }}%"></div>
       </div>
       <div class="user-hp-container">
         <span class="heart-icon">&#10084;</span>
-        <p>&nbsp;&nbsp;&nbsp;50/50</p>
+        <p>&nbsp;&nbsp;&nbsp;{{ user.user_hp }}/100</p>
       </div>
     </div>
   </div>
@@ -45,7 +45,7 @@
       </div>
       <div class="genre">
         <p class="user-preference-item-title">Genre</p>
-        <p class="user-preference-item-type">Hip hop music</p>
+        <p class="user-preference-item-type">{{ user.user_genre }}</p>
       </div>
     </div>
     <div class="user-preference-item-container">
@@ -58,7 +58,7 @@
       </div>
       <div class="guild">
         <p class="user-preference-item-title">Guild</p>
-        <p class="user-preference-item-type">Delphinus</p>
+        <p class="user-preference-item-type">{{ user.user_guild }}</p>
       </div>
     </div>
   </div>

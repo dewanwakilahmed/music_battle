@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 
+from .models import User
+
 # Create your views here.
 
 
@@ -44,7 +46,10 @@ def index(request):
 
 def myProfileTab(request):
     if request.user.is_authenticated:
-        return render(request, 'baseapp/my-profile-tab.html')
+        current_user = request.user
+        return render(request, 'baseapp/my-profile-tab.html', {
+            'user': current_user
+        })
     else:
         return redirect('/')
 

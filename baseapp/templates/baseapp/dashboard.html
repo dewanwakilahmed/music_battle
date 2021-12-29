@@ -12,8 +12,8 @@
         <div class="user-profile-rank-image-container">
           <img class="user-profile-rank-image" src="{% static 'baseapp/asset/icon/skull-icon.svg' %}" alt="" />
         </div>
-        <h3 class="user-profile-name">H.A.R.M</h3>
-        <p>admin@harmedforces.com</p>
+        <h3 class="user-profile-name">{{ user.username }}</h3>
+        <p>{{ user.email }}</p>
       </div>
       <a href="#" class="dashboard-sidebar-links">My Battles</a>
       <a href="#" class="dashboard-sidebar-links">Graveyard</a>
