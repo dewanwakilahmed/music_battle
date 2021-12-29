@@ -5,16 +5,53 @@
 {% block base_content %}
 <div class="dashboard">
 
-  <!-- <div class="dashboard-side-nav">SIDE NAV</div> -->
+  <div class="dashboard-sidebar-container">
+    <div id="mySidebar" class="dashboard-sidebar">
+      <a href="javascript:void(0)" class="closebtn dashboard-sidebar-links" onclick="closeNav()">x</a>
+      <div class="user-profile">
+        <div class="user-profile-rank-image-container">
+          <img class="user-profile-rank-image" src="{% static 'baseapp/asset/icon/skull-icon.svg' %}" alt="" />
+        </div>
+        <h3 class="user-profile-name">H.A.R.M</h3>
+        <p>admin@harmedforces.com</p>
+      </div>
+      <a href="#" class="dashboard-sidebar-links">My Battles</a>
+      <a href="#" class="dashboard-sidebar-links">Graveyard</a>
+      <a href="#" class="dashboard-sidebar-links">Admin</a>
+      <a href="#" class="dashboard-sidebar-links">Classes</a>
+      <a href="#" class="dashboard-sidebar-links">Ranks</a>
+      <a href="#" class="dashboard-sidebar-links">Balance</a>
+      <a href="#" class="dashboard-sidebar-links">About</a>
+      <a href="#" class="dashboard-sidebar-links">Sign Out</a>
+    </div>
+    
+    <!-- <div id="main" class="main-low">
+      <button class="openbtn" onclick="openNav()">☰</button>
+    </div> -->
+  </div>
+  
+  <script>
+  function openNav() {
+    document.getElementById("mySidebar").style.width = "250px";
+  }
+  
+  function closeNav() {
+    document.getElementById("mySidebar").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+  }
+  </script>
 
   <header class="dashboard-header">
-    <a href="/admin-panel" class="floating-left-menu">
+    <div id="main" class="main-low dashboard-sidebar-container">
+      <button class="openbtn" onclick="openNav()">☰</button>
+    </div>
+    <!-- <a href="/admin-panel" class="floating-left-menu">
       <svg class="burger-menu-icon">
         <path d="M8.667,15h30c0.552,0,1-0.447,1-1s-0.448-1-1-1h-30c-0.552,0-1,0.447-1,1S8.114,15,8.667,15z" />
         <path d="M8.667,37h30c0.552,0,1-0.447,1-1s-0.448-1-1-1h-30c-0.552,0-1,0.447-1,1S8.114,37,8.667,37z" />
         <path d="M8.667,26h30c0.552,0,1-0.447,1-1s-0.448-1-1-1h-30c-0.552,0-1,0.447-1,1S8.114,26,8.667,26z" />
       </svg>
-    </a>
+    </a> -->
     <h1 class="selected-tab-title">{% block tab_title %} {% endblock %}</h1>
   </header>
 
