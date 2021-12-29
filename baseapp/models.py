@@ -1,116 +1,109 @@
 from django.db import models
-from django.contrib.auth.models import (
-    BaseUserManager, AbstractBaseUser
-)
+from django.contrib.auth.models import AbstractUser
 
-class User(AbstractBaseUser):
-    email = models.EmailField(
-        verbose_name='email address',
-        max_length=255,
-        unique=True,
-    )
-    is_active = models.BooleanField(default=True)
-    staff = models.BooleanField(default=False) # a admin user; non super-user
-    admin = models.BooleanField(default=False) # a superuser
 
-    # notice the absence of a "Password field", that is built in.
+class User(AbstractUser):
+    # user_email = models.EmailField(unique=True, null=True)
+    user_image = models.ImageField(upload_to="user-images", null=True)
+    user_genre = models.CharField(max_length=50, blank=True, null=True)
+    user_guild = models.CharField(max_length=50, blank=True, null=True)
+    user_gold = models.IntegerField(blank=True, null=True)
+    user_xp = models.IntegerField(blank=True, null=True)
+    user_hp = models.IntegerField(default=100, null=True)
 
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = [] # Email & Password are required by default.
+# from django.contrib.auth.models import (
+#     BaseUserManager, AbstractBaseUser
+# )
 
-    def get_full_name(self):
-        # The user is identified by their email address
-        return self.email
+# class User(AbstractBaseUser):
+#     email = models.EmailField(
+#         verbose_name='email address',
+#         max_length=255,
+#         unique=True,
+#     )
+#     is_active = models.BooleanField(default=True)
+#     staff = models.BooleanField(default=False) # a admin user; non super-user
+#     admin = models.BooleanField(default=False) # a superuser
 
-    def get_short_name(self):
-        # The user is identified by their email address
-        return self.email
+#     # notice the absence of a "Password field", that is built in.
 
-    def __str__(self):
-        return self.email
+#     USERNAME_FIELD = 'email'
+#     REQUIRED_FIELDS = [] # Email & Password are required by default.
 
-    def has_perm(self, perm, obj=None):
-        "Does the user have a specific permission?"
-        # Simplest possible answer: Yes, always
-        return True
+#     def get_full_name(self):
+#         # The user is identified by their email address
+#         return self.email
 
-    def has_module_perms(self, app_label):
-        "Does the user have permissions to view the app `app_label`?"
-        # Simplest possible answer: Yes, always
-        return True
+#     def get_short_name(self):
+#         # The user is identified by their email address
+#         return self.email
 
-    @property
-    def is_staff(self):
-        "Is the user a member of staff?"
-        return self.staff
+#     def __str__(self):
+#         return self.email
 
-    @property
-    def is_admin(self):
-        "Is the user a admin member?"
-        return self.admin
+#     def has_perm(self, perm, obj=None):
+#         "Does the user have a specific permission?"
+#         # Simplest possible answer: Yes, always
+#         return True
 
-class UserManager(BaseUserManager):
-    def create_user(self, email, password=None):
-        """
-        Creates and saves a User with the given email and password.
-        """
-        if not email:
-            raise ValueError('Users must have an email address')
+#     def has_module_perms(self, app_label):
+#         "Does the user have permissions to view the app `app_label`?"
+#         # Simplest possible answer: Yes, always
+#         return True
 
-        user = self.model(
-            email=self.normalize_email(email),
-        )
+#     @property
+#     def is_staff(self):
+#         "Is the user a member of staff?"
+#         return self.staff
 
-        user.set_password(password)
-        user.save(using=self._db)
-        return user
+#     @property
+#     def is_admin(self):
+#         "Is the user a admin member?"
+#         return self.admin
 
-    def create_staffuser(self, email, password):
-        """
-        Creates and saves a staff user with the given email and password.
-        """
-        user = self.create_user(
-            email,
-            password=password,
-        )
-        user.staff = True
-        user.save(using=self._db)
-        return user
+# class UserManager(BaseUserManager):
+#     def create_user(self, email, password=None):
+#         """
+#         Creates and saves a User with the given email and password.
+#         """
+#         if not email:
+#             raise ValueError('Users must have an email address')
 
-    def create_superuser(self, email, password):
-        """
-        Creates and saves a superuser with the given email and password.
-        """
-        user = self.create_user(
-            email,
-            password=password,
-        )
-        user.staff = True
-        user.admin = True
-        user.save(using=self._db)
-        return user
+#         user = self.model(
+#             email=self.normalize_email(email),
+#         )
 
-# hook in the New Manager to our Model
-class User(AbstractBaseUser): # from step 2
-    ...
-    objects = UserManager()
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  # user_email = models.EmailField(unique=True)
-  # user_image = models.ImageField(upload_to="user-images")
-  # user_genre = models.CharField(max_length=50, blank=True)
-  # user_guild = models.CharField(max_length=50, blank=True)
-  # user_gold = models.IntegerField(max_length=5, blank=True)
-  # user_xp = models.IntegerField(max_length=10, blank=True)
-  # user_hp = models.IntegerField(max_length=3, default=100)
+#         user.set_password(password)
+#         user.save(using=self._db)
+#         return user
+
+#     def create_staffuser(self, email, password):
+#         """
+#         Creates and saves a staff user with the given email and password.
+#         """
+#         user = self.create_user(
+#             email,
+#             password=password,
+#         )
+#         user.staff = True
+#         user.save(using=self._db)
+#         return user
+
+#     def create_superuser(self, email, password):
+#         """
+#         Creates and saves a superuser with the given email and password.
+#         """
+#         user = self.create_user(
+#             email,
+#             password=password,
+#         )
+#         user.staff = True
+#         user.admin = True
+#         user.save(using=self._db)
+#         return user
+
+# # hook in the New Manager to our Model
+# class User(AbstractBaseUser): # from step 2
+#     ...
+#     objects = UserManager()
 
