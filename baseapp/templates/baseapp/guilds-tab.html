@@ -10,11 +10,11 @@
 <div class="user-selected-guild-icon-container">
   <img
     class="user-selected-guild-icon"
-    src="{% static 'baseapp/asset/icon/typhoon-guild-icon.svg' %}"
+    src="{{ user.user_guild.guild_image.url }}"
   />
 </div>
 <div class="user-selected-guild-details">
-  <h2 class="user-selected-guild-title">Typhoon</h2>
+  <h2 class="user-selected-guild-title">{{ user.user_guild.guild_name }}</h2>
   <p class="user-selected-guild-xp">248 XP</p>
 </div>
 </div class="guilds-content">

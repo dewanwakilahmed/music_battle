@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 
-from .models import User
+from .models import User, Guild
 
 # Create your views here.
 
@@ -55,14 +55,20 @@ def myProfileTab(request):
 
 
 def guildsTab(request):
+    current_user = request.user
     if request.user.is_authenticated:
-        return render(request, 'baseapp/guilds-tab.html')
+        return render(request, 'baseapp/guilds-tab.html',{
+            'user': current_user
+        })
     else:
         return redirect('/')
 
 def guildsList(request):
+    guild = Guild.objects.all()
     if request.user.is_authenticated:
-        return render(request, 'baseapp/guilds-components/guilds-list.html')
+        return render(request, 'baseapp/guilds-components/guilds-list.html', {
+            'guild': guild
+        })
     else:
         return redirect('/')
 

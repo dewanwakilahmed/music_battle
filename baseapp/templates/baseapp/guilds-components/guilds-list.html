@@ -4,22 +4,24 @@
 
 {% block guilds_content %}
 <ul class="guilds-list">
+  {% for guild_item in guild %}
   <li class="guilds-list-item">
     <a href="/selected-guild" class="guilds-list-item-link">
       <div class="guilds-list-item-icon-container">
         <img
           class="guilds-list-item-icon"
-          src="{% static 'baseapp/asset/icon/callisto-guild-icon.svg' %}"
+          src="{{ guild_item.guild_image.url }}"
           alt=""
         />
       </div>
       <div class="guilds-list-item-details">
-        <p class="guilds-list-item-title">Callisto</p>
+        <p class="guilds-list-item-title">{{ guild_item.guild_name }}</p>
         <p class="guilds-list-item-xp">110 XP</p>
       </div>
     </a>
   </li>
-  <li class="guilds-list-item">
+  {% endfor %}
+  <!-- <li class="guilds-list-item">
     <a href="" class="guilds-list-item-link">
       <div class="guilds-list-item-icon-container">
         <img
@@ -93,6 +95,6 @@
         <p class="guilds-list-item-xp">180 XP</p>
       </div>
     </a>
-  </li>
+  </li> -->
 </ul>
 {% endblock %}
