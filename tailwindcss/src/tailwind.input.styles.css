@@ -345,7 +345,7 @@
 }
 
 .user-selected-guild-details {
-  @apply w-80 mt-3;
+  @apply w-80 mt-3 mb-12;
 }
 
 .user-selected-guild-title {
@@ -353,7 +353,7 @@
 }
 
 .guilds-list {
-  @apply mt-12 flex flex-col gap-5 w-182;
+  @apply flex flex-col gap-5 w-182;
 }
 
 .guilds-list-item {
@@ -374,6 +374,14 @@
 
 .guilds-list-item-title {
   @apply text-3xl;
+}
+
+.selected-guild-ranks {
+  @apply flex flex-col gap-2 w-96;
+}
+
+.selected-guild-ranks-item {
+  @apply bg-yellow-400 hover:bg-yellow-600 text-center p-4 cursor-pointer rounded-xl;
 }
 
 /* ADMIN PANEL PAGE */

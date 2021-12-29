@@ -989,6 +989,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .user-selected-guild-details {
   margin-top: 0.75rem;
+  margin-bottom: 3rem;
   width: 20rem;
 }
 
@@ -998,7 +999,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 .guilds-list {
-  margin-top: 3rem;
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
@@ -1034,6 +1034,27 @@ Ensure the default browser behavior of the `hidden` attribute.
 .guilds-list-item-title {
   font-size: 1.875rem;
   line-height: 2.25rem;
+}
+
+.selected-guild-ranks {
+  display: flex;
+  width: 24rem;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.selected-guild-ranks-item {
+  cursor: pointer;
+  border-radius: 0.75rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(250 204 21 / var(--tw-bg-opacity));
+  padding: 1rem;
+  text-align: center;
+}
+
+.selected-guild-ranks-item:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(202 138 4 / var(--tw-bg-opacity));
 }
 
 /* ADMIN PANEL PAGE */

@@ -55,6 +55,18 @@ def guildsTab(request):
     else:
         return redirect('/')
 
+def guildsList(request):
+    if request.user.is_authenticated:
+        return render(request, 'baseapp/guilds-components/guilds-list.html')
+    else:
+        return redirect('/')
+
+def selectedGuild(request):
+    if request.user.is_authenticated:
+        return render(request, 'baseapp/guilds-components/selected-guild.html')
+    else:
+        return redirect('/')
+
 
 def challengesTab(request):
     if request.user.is_authenticated:
