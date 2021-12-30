@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 
-from .models import User, Guild
+from .models import User, Guild, Rank
 
 # Create your views here.
 
@@ -47,6 +47,7 @@ def index(request):
 def myProfileTab(request):
     if request.user.is_authenticated:
         current_user = request.user
+        updateRank(request)
         return render(request, 'baseapp/my-profile-tab.html', {
             'user': current_user
         })
@@ -112,3 +113,15 @@ def adminPanel(request):
         return render(request, 'baseapp/admin-panel.html')
     else:
         return redirect('/')
+
+
+def updateRank(request):
+    ranks = Rank.objects.all()
+    current_user = User.objects.get(pk=request.user.pk)
+    for rank in ranks:
+        if current_user.user_xp > rank.rank_min_point:
+            current_user.user_rank = rank
+            print(rank)
+            current_user.save()
+        else:
+            break
