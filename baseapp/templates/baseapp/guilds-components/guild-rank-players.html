@@ -18,16 +18,5 @@
 {% endblock %}
 
 {% block guild_tab_body_content %}
-<ul class="selected-guild-ranks">
-  {% for guild_rank_item in guild_rank %}
-  <li class="selected-guild-ranks-item">
-    <a href="{% url 'guild-rank-players' selected_guild.slug guild_rank_item.slug %}" class="guild-rank-items link">
-      {{ guild_rank_item.guild_rank_name }}
-    </a>
-  </li>
-  {% endfor %}
-  <!-- <li class="selected-guild-ranks-item">Warchiefs</li>
-  <li class="selected-guild-ranks-item">Captains</li>
-  <li class="selected-guild-ranks-item">Soldiers</li> -->
-</ul>
+(Currently there are no player(s) in {{ selected_guild.guild_name }} Guild with {{ selected_guild_rank.guild_rank_name }} rank!)
 {% endblock %}

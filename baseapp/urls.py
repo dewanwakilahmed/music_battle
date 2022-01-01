@@ -11,6 +11,7 @@ urlpatterns = [
     path('guilds-tab/', views.guildsTab, name='guilds-tab'),
     path('user-guild-overview/', views.userGuildOverview, name='user-guild-overview'),
     path('selected-guild/<slug:guild_slug>', views.selectedGuild, name='selected-guild'),
+    path('selected-guild/<slug:guild_slug>/<slug:guild_rank_slug>', views.guildRankPlayers, name='guild-rank-players'),
     path('challenges-tab/', views.challengesTab, name='challenges-tab'),
     path('buy-in-tab/', views.buyInTab, name='buy-in-tab'),
     path('my-tickets-tab/', views.myTicketsTab, name='my-tickets-tab'),

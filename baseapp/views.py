@@ -84,6 +84,17 @@ def selectedGuild(request, guild_slug):
     else:
         return redirect('/')
 
+def guildRankPlayers(request, guild_slug, guild_rank_slug):
+    selected_guild = Guild.objects.get(slug=guild_slug)
+    selected_guild_rank = GuildRank.objects.get(slug=guild_rank_slug)
+    if request.user.is_authenticated:
+        return render(request, 'baseapp/guilds-components/guild-rank-players.html', {
+            'selected_guild_rank': selected_guild_rank,
+            'selected_guild': selected_guild
+        })
+    else:
+        return redirect('/')
+
 
 def challengesTab(request):
     if request.user.is_authenticated:
