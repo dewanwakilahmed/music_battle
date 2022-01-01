@@ -5,20 +5,23 @@
 {% block guild_tab_header_content %}
 <div class="user-selected-guild">
   <div class="user-selected-guild-icon-container">
-
+    <img
+      class="user-selected-guild-icon"
+      src="{{ user.user_guild.guild_image.url }}"
+    />
+  </div>
+  <div class="user-selected-guild-details">
+    <h2 class="user-selected-guild-title">{{ user.user_guild.guild_name }}</h2>
+    <p class="user-selected-guild-xp">248 XP</p>
   </div>
 </div>
 {% endblock %}
-<img
-  class="user-selected-guild-icon"
-  src="{{ user.user_guild.guild_image.url }}"
-/>
 
-{% block guilds_content %}
+{% block guild_tab_body_content %}
 <ul class="guilds-list">
   {% for guild_item in guild %}
   <li class="guilds-list-item">
-    <a href="/selected-guild" class="guilds-list-item-link">
+    <a href="{% url 'selected-guild' guild_item.slug %}" class="guilds-list-item-link">
       <div class="guilds-list-item-icon-container">
         <img
           class="guilds-list-item-icon"

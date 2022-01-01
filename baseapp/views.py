@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 
-from .models import User, Guild, Rank
+from .models import User, Guild, Rank, GuildRank
 
 # Create your views here.
 
@@ -64,18 +64,23 @@ def guildsTab(request):
     else:
         return redirect('/')
 
-def guildsList(request):
+def userGuildOverview(request):
     guild = Guild.objects.all()
     if request.user.is_authenticated:
-        return render(request, 'baseapp/guilds-components/guilds-list.html', {
+        return render(request, 'baseapp/guilds-components/user-guild-overview.html', {
             'guild': guild
         })
     else:
         return redirect('/')
 
-def selectedGuild(request):
+def selectedGuild(request, guild_slug):
+    selected_guild = Guild.objects.get(slug=guild_slug)
+    guild_rank = GuildRank.objects.all()
     if request.user.is_authenticated:
-        return render(request, 'baseapp/guilds-components/selected-guild.html')
+        return render(request, 'baseapp/guilds-components/selected-guild.html', {
+            'guild_rank': guild_rank,
+            'selected_guild': selected_guild
+        })
     else:
         return redirect('/')
 
@@ -121,7 +126,6 @@ def updateRank(request):
     for rank in ranks:
         if current_user.user_xp > rank.rank_min_point:
             current_user.user_rank = rank
-            print(rank)
             current_user.save()
         else:
             break

@@ -10,18 +10,20 @@ class Rank(models.Model):
     rank_image = models.FileField(upload_to="rank-image")
 
     def __str__(self):
-      return f'{self.rank_name} - {self.rank_min_point} - {self.rank_max_point} - {self.rank_color} - {self.rank_hp_boost}'
+      return f'{self.rank_name}'
 
 class Guild(models.Model):
     guild_name = models.CharField(max_length=50)
     guild_image = models.FileField(upload_to="guild-image")
+    slug = models.SlugField(unique=True)
 
     def __str__(self):
       return f'{self.guild_name}'
 
 class GuildRank(models.Model):
     guild_rank_name = models.CharField(max_length=50, blank=True, null=True)
-
+    slug = models.SlugField(unique=True)
+    
     def __str__(self):
       return f'{self.guild_rank_name}'
 

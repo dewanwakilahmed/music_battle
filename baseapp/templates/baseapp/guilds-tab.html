@@ -6,15 +6,7 @@
 
 {% block tab_content %}
 <div class="guilds-tab">
-
   {% block guild_tab_header_content %} {% endblock %}
-</div>
-<div class="user-selected-guild-details">
-  <h2 class="user-selected-guild-title">{{ user.user_guild.guild_name }}</h2>
-  <p class="user-selected-guild-xp">248 XP</p>
-</div>
-</div class="guilds-content">
-  {% block guilds_content %} {% endblock %}
-</div>
+  {% block guild_tab_body_content %} {% endblock %}
 </div>
 {% endblock %}

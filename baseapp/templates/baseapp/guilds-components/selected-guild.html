@@ -2,11 +2,28 @@
 
 {% load static %}
 
-{% block guilds_content %}
+{% block guild_tab_header_content %}
+<div class="user-selected-guild">
+  <div class="user-selected-guild-icon-container">
+    <img
+      class="user-selected-guild-icon"
+      src="{{ selected_guild.guild_image.url }}"
+    />
+  </div>
+  <!-- <div class="user-selected-guild-details">
+    <h2 class="user-selected-guild-title">{{ user.user_guild.guild_name }}</h2>
+    <p class="user-selected-guild-xp">248 XP</p>
+  </div> -->
+</div>
+{% endblock %}
+
+{% block guild_tab_body_content %}
 <ul class="selected-guild-ranks">
-  <li class="selected-guild-ranks-item">Overlord</li>
-  <li class="selected-guild-ranks-item">Warchiefs</li>
+  {% for guild_rank_item in guild_rank %}
+  <li class="selected-guild-ranks-item">{{ guild_rank_item.guild_rank_name }}</li>
+  {% endfor %}
+  <!-- <li class="selected-guild-ranks-item">Warchiefs</li>
   <li class="selected-guild-ranks-item">Captains</li>
-  <li class="selected-guild-ranks-item">Soldiers</li>
+  <li class="selected-guild-ranks-item">Soldiers</li> -->
 </ul>
 {% endblock %}

@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 
-app_name = "baseapp"
+# app_name = "baseapp"
 
 
 urlpatterns = [
@@ -9,8 +9,8 @@ urlpatterns = [
     # path('dashboard/', views.dashboard, name='dashboard'),
     path('my-profile-tab', views.myProfileTab, name='my-profile-tab'),
     path('guilds-tab/', views.guildsTab, name='guilds-tab'),
-    path('guilds-list/', views.guildsList, name='guilds-list'),
-    path('selected-guild/', views.selectedGuild, name='selected-guild'),
+    path('user-guild-overview/', views.userGuildOverview, name='user-guild-overview'),
+    path('selected-guild/<slug:guild_slug>', views.selectedGuild, name='selected-guild'),
     path('challenges-tab/', views.challengesTab, name='challenges-tab'),
     path('buy-in-tab/', views.buyInTab, name='buy-in-tab'),
     path('my-tickets-tab/', views.myTicketsTab, name='my-tickets-tab'),
