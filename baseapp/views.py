@@ -140,3 +140,8 @@ def updateRank(request):
             current_user.save()
         else:
             break
+
+def logout_request(request):
+    auth.logout(request)
+    messages.info(request, "Logged out successfully!")
+    return redirect('index')

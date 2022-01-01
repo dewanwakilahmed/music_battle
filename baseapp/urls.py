@@ -17,4 +17,5 @@ urlpatterns = [
     path('my-tickets-tab/', views.myTicketsTab, name='my-tickets-tab'),
     path('battles-tab/', views.battlesTab, name='battles-tab'),
     path('admin-panel/', views.adminPanel, name="admin-panel"),
+    path("logout", views.logout_request, name='logout')
 ]
