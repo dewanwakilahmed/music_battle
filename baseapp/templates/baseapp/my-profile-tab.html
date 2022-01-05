@@ -7,7 +7,7 @@
 {% block tab_content %}
 <div class="my-profile-tab">
   <div class="rank-gold-bar">
-    <p class="user-rank">{{ user.user_rank }}: {{ user.user_xp }}XP/500XP</p>
+    <p class="user-rank">{{ user.user_rank }}: {{ user.user_xp }}XP/{{ user.user_rank.rank_max_point }}XP</p>
     <div class="user-gold">💰 {{ user.user_gold }}</div>
   </div>
   <div class="user-details-section">

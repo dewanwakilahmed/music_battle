@@ -575,7 +575,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 /* LOGIN PAGE */
 
-.login-page {
+.login-register-page {
   display: grid;
   place-items: center;
   overflow: hidden;
@@ -589,13 +589,29 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 40.5rem;
 }
 
-.application-title {
-  font-size: 6rem;
+/* .app-details-container {
+  @apply bg-indigo-500;
+} */
+
+.app-title {
+  font-size: 4.5rem;
   line-height: 1;
 }
 
+.app-icon-container {
+  display: grid;
+  height: 4rem;
+  place-items: center;
+}
+
+.app-icon {
+  height: 4rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(99 102 241 / var(--tw-bg-opacity));
+}
+
 .login-page-greeting-msg {
-  font-size: 3.75rem;
+  font-size: 3rem;
   line-height: 1;
 }
 
@@ -618,7 +634,18 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(23 23 23 / var(--tw-text-opacity));
 }
 
-.login-btn {
+.login-register-page-actions {
+  display: grid;
+  place-items: center;
+  gap: 0.5rem;
+}
+
+.login-register-btns {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.login-register-btn {
   width: 7rem;
   cursor: pointer;
   border-radius: 0.5rem;
@@ -632,9 +659,38 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(250 250 250 / var(--tw-text-opacity));
 }
 
-.login-btn:hover {
+.login-register-btn:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(107 114 128 / var(--tw-bg-opacity));
+}
+
+.google-sign-in-btn-container {
+  display: flex;
+  place-items: center;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(23 23 23 / var(--tw-bg-opacity));
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  --tw-text-opacity: 1;
+  color: rgb(250 250 250 / var(--tw-text-opacity));
+}
+
+.google-sign-in-btn-container:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(38 38 38 / var(--tw-bg-opacity));
+}
+
+.google-sign-in-icon {
+  height: 2rem;
+}
+
+.google-sign-in-btn-title {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 /* DASHBOARD PAGE */

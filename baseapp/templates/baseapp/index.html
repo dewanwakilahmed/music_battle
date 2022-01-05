@@ -1,9 +1,14 @@
 {% extends 'baseapp/base/base.html' %}
 
+{% load static %}
+
 {% block base_content %}
-<div class="login-page">
-  <div class="application-title-container">
-    <h1 class="application-title">BEATS VERSE</h1>
+<div class="login-register-page">
+  <div class="app-details-container">
+    <h1 class="app-title">BeatsVerse.IO</h1>
+    <!-- <div class="app-icon-container">
+      <img class="app-icon" src="{% static 'baseapp/asset/icon/beats-verse.svg' %}" alt="beats-verse-icon">
+    </div> -->
   </div>
   <div class="login-page-greeting-msg-container">
     <p class="login-page-greeting-msg">Welcome</p>
@@ -25,7 +30,18 @@
       class="user-login-input"
       placeholder="Password"
     />
-    <input type="submit" name="login" class="login-btn" value="Login" />
+    <div class="login-register-page-actions">
+      <div class="login-register-btns">
+        <input type="submit" name="login" class="login-register-btn" value="Login" />
+        <input type="submit" name="register" class="login-register-btn" value="Register" />
+      </div>
+      <button class="google-sign-in-btn-container">
+        <img class="google-sign-in-icon" src="{% static 'baseapp/asset/icon/google-sign-in-icon.svg' %}" alt="google-sign-in-icon">
+        <span class="google-sign-in-btn-title">
+          Sign in with Google
+        </span>
+      </button>
+    </div>
     {% for message in messages %}
       <p>{{ message }}</p>
     {% endfor %}

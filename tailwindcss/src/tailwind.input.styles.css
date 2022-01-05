@@ -69,7 +69,7 @@
 
 /* LOGIN PAGE */
 
-.login-page {
+.login-register-page {
   @apply bg-yellow-400
   text-neutral-900
   w-340
@@ -81,12 +81,24 @@
   p-2;
 }
 
-.application-title {
-  @apply text-8xl;
+/* .app-details-container {
+  @apply bg-indigo-500;
+} */
+
+.app-title {
+  @apply text-7xl;
+}
+
+.app-icon-container {
+  @apply h-16 grid place-items-center;
+}
+
+.app-icon {
+  @apply bg-indigo-500 h-16;
 }
 
 .login-page-greeting-msg {
-  @apply text-6xl;
+  @apply text-5xl;
 }
 
 .login-form {
@@ -101,9 +113,30 @@
   @apply text-neutral-900 p-2 rounded-lg w-96;
 }
 
-.login-btn {
+.login-register-page-actions {
+  @apply grid gap-2 place-items-center;
+}
+
+.login-register-btns {
+  @apply flex gap-2;
+}
+
+.login-register-btn {
   @apply text-neutral-50 bg-gray-600 hover:bg-gray-500 cursor-pointer rounded-lg w-28 px-4 py-2;
 }
+
+.google-sign-in-btn-container {
+  @apply bg-neutral-900 text-neutral-50 px-4 py-2 rounded-lg flex gap-2 place-items-center hover:bg-neutral-800;
+}
+
+.google-sign-in-icon {
+  @apply h-8;
+}
+
+.google-sign-in-btn-title {
+  @apply text-sm;
+}
+
 
 /* DASHBOARD PAGE */
 
