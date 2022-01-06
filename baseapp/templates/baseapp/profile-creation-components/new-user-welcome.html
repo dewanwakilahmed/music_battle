@@ -1,0 +1,33 @@
+{% extends 'baseapp/dashboard.html' %}
+
+{% load static %}
+
+{% block tab_title %} Welcome {% endblock %}
+
+{% block tab_content %}
+<div class="profile-creation">
+  <div class="app-logo-container">
+    <img src="" alt="" class="app-logo" />
+  </div>
+  <div class="welcome-msg-container">
+    <img src="" alt="" class="hand-icon" />
+    <p class="welcome-msg-text">Looks like you're new here!</p>
+  </div>
+  <form action="" class="user-profile-info-input">
+    <p class="instruction-to-user">Let's Complete your profile!</p>
+    <label class="username-input-label" for="username">What shall we call you?</label>
+    <input type="text" class="username-input" name="username" placeholder="Enter a username" />
+    <label for="user_image" class="user-image-upload-label">Upload an Avatar</label>
+    <input type="file" class="user-image-upload" id="img" name="user_image" accept="image/*" />
+    <label for="user_selected_genre" class="select-genre">Select a Genre</label>
+    <select name="user_selected_genre" class="user-selected-genre">
+      <option class="genre-option" value="hip-hop">Hip-hop Music</option>
+      <option class="genre-option" value="rock">Rock Music</option>
+      <option class="genre-option" value="indie">Indie Music</option>
+      <option class="genre-option" value="hip-hop">Pop Music</option>
+    </select>
+    <button class="connect-wallet-btn">Connect Wallet</button>
+    <input type="submit" value="Save & Next" class="profile-creation-submit-btn" />
+  </form>
+</div>
+{% endblock %}

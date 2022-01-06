@@ -39,6 +39,7 @@ class User(AbstractUser):
     user_guild_rank = models.ForeignKey(GuildRank, on_delete=models.CASCADE, blank=True, null=True)
     user_xp = models.IntegerField(blank=True, null=True)
     user_hp = models.IntegerField(default=100, null=True)
+    user_is_profile_completed = models.BooleanField(blank=True, null=True, default=False)
 
     def __str__(self):
       return f'{self.username} - {self.user_genre}'

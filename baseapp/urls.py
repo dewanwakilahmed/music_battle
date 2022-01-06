@@ -6,7 +6,8 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    # path('dashboard/', views.dashboard, name='dashboard'),
+    path('dashboard/', views.dashboard, name='dashboard'),
+    path('new-profile/', views.profileCreation, name='profile-creation'),
     path('my-profile-tab', views.myProfileTab, name='my-profile-tab'),
     path('guilds-tab/', views.guildsTab, name='guilds-tab'),
     path('user-guild-overview/', views.userGuildOverview, name='user-guild-overview'),

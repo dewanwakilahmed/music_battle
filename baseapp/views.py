@@ -11,38 +11,48 @@ def index(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
-        if 'login' in request.POST:
+        if ('login' in request.POST):
             user = auth.authenticate(username=username, password=password)
             if user is not None:
                 auth.login(request, user)
-                return redirect('/my-profile-tab')
+                return redirect('dashboard')
             else:
                 messages.info(request, 'Invalid Credentials!')
                 return redirect('/')
-        # elif ('register' in request.POST):
-        #     if username == '' or password == '':
-        #         messages.error(
-        #             request, 'Please provide both username and password')
-        #         return redirect('/')
-        #     else:
-        #         if User.objects.filter(username=username).exists():
-        #             messages.info(request, 'Username Already Taken!')
-        #             return redirect('/')
-        #         else:
-        #             user = User.objects.create_user(
-        #                 username=username, password=password)
-        #             user.save()
-        #             messages.info(
-        #                 request, 'Account Registered! Please Login Now')
-        #             return redirect('/')
+        elif ('register' in request.POST):
+            if username == '' or password == '':
+                messages.error(
+                    request, 'Please provide both username and password')
+                return redirect('/')
+            else:
+                if User.objects.filter(username=username).exists():
+                    messages.info(request, 'Username Already Taken!')
+                    return redirect('/')
+                else:
+                    user = User.objects.create_user(
+                        username=username, password=password)
+                    user.save()
+                    messages.info(
+                        request, 'Account Registered! Please Login Now')
+                    return redirect('/')
     else:
         return render(request, 'baseapp/index.html')
 
-# def dashboard(request):
-#     if request.user.is_authenticated:
-#         return render(request, 'baseapp/dashboard.html')
-#     else:
-#         return redirect('/')
+def dashboard(request):
+    if request.user.is_authenticated:
+        current_user = User.objects.get(pk=request.user.pk)
+        if current_user.user_is_profile_completed == False:
+            return redirect('profile-creation')
+        else:
+            return redirect('my-profile-tab')
+    else:
+        return redirect('/')
+
+def profileCreation(request):
+    if request.user.is_authenticated:
+        return render(request, 'baseapp/profile-creation-components/new-user-welcome.html')
+    else:
+        return redirect('/')
 
 def myProfileTab(request):
     if request.user.is_authenticated:

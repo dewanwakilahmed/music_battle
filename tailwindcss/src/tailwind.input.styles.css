@@ -137,6 +137,34 @@
   @apply text-sm;
 }
 
+/* NEW USER PROFILE CREATION PAGE */
+/* .profile-creation {
+  @apply flex flex-col;
+} */
+
+.user-profile-info-input {
+  @apply flex flex-col;
+}
+
+.username-input {
+  @apply text-neutral-900;
+}
+
+.user-selected-genre {
+  @apply text-neutral-900;
+}
+
+.genre-option {
+  @apply text-neutral-900;
+}
+
+.connect-wallet-btn {
+  @apply p-4 bg-orange-600 hover:bg-orange-500 rounded-lg mt-2;
+}
+
+.profile-creation-submit-btn {
+  @apply p-4 bg-orange-600 hover:bg-orange-500 hover:cursor-pointer rounded-lg mt-2;
+}
 
 /* DASHBOARD PAGE */
 
@@ -207,14 +235,18 @@
 
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 .main-low {
-  transition: margin-left .5s; /* If you want a transition effect */
+  transition: margin-left 0.5s; /* If you want a transition effect */
   padding: 20px;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
-  .sidebar {padding-top: 15px;}
-  .sidebar a {font-size: 18px;}
+  .sidebar {
+    padding-top: 15px;
+  }
+  .sidebar a {
+    font-size: 18px;
+  }
 }
 
 .user-profile {

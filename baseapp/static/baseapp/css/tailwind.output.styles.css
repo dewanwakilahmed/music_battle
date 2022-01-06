@@ -693,6 +693,59 @@ Ensure the default browser behavior of the `hidden` attribute.
   line-height: 1.25rem;
 }
 
+/* NEW USER PROFILE CREATION PAGE */
+
+/* .profile-creation {
+  @apply flex flex-col;
+} */
+
+.user-profile-info-input {
+  display: flex;
+  flex-direction: column;
+}
+
+.username-input {
+  --tw-text-opacity: 1;
+  color: rgb(23 23 23 / var(--tw-text-opacity));
+}
+
+.user-selected-genre {
+  --tw-text-opacity: 1;
+  color: rgb(23 23 23 / var(--tw-text-opacity));
+}
+
+.genre-option {
+  --tw-text-opacity: 1;
+  color: rgb(23 23 23 / var(--tw-text-opacity));
+}
+
+.connect-wallet-btn {
+  margin-top: 0.5rem;
+  border-radius: 0.5rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(234 88 12 / var(--tw-bg-opacity));
+  padding: 1rem;
+}
+
+.connect-wallet-btn:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(249 115 22 / var(--tw-bg-opacity));
+}
+
+.profile-creation-submit-btn {
+  margin-top: 0.5rem;
+  border-radius: 0.5rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(234 88 12 / var(--tw-bg-opacity));
+  padding: 1rem;
+}
+
+.profile-creation-submit-btn:hover {
+  cursor: pointer;
+  --tw-bg-opacity: 1;
+  background-color: rgb(249 115 22 / var(--tw-bg-opacity));
+}
+
 /* DASHBOARD PAGE */
 
 .dashboard {
@@ -773,7 +826,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 
 .main-low {
-  transition: margin-left .5s;
+  transition: margin-left 0.5s;
   /* If you want a transition effect */
   padding: 20px;
 }
