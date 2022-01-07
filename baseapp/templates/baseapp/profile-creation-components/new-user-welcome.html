@@ -13,18 +13,24 @@
     <img src="" alt="" class="hand-icon" />
     <p class="welcome-msg-text">Looks like you're new here!</p>
   </div>
-  <form action="" class="user-profile-info-input">
+  <form action="" method="POST" class="user-profile-info-input" enctype="multipart/form-data">
+    {% csrf_token %}
     <p class="instruction-to-user">Let's Complete your profile!</p>
     <label class="username-input-label" for="username">What shall we call you?</label>
     <input type="text" class="username-input" name="username" placeholder="Enter a username" />
     <label for="user_image" class="user-image-upload-label">Upload an Avatar</label>
     <input type="file" class="user-image-upload" id="img" name="user_image" accept="image/*" />
-    <label for="user_selected_genre" class="select-genre">Select a Genre</label>
-    <select name="user_selected_genre" class="user-selected-genre">
-      <option class="genre-option" value="hip-hop">Hip-hop Music</option>
-      <option class="genre-option" value="rock">Rock Music</option>
-      <option class="genre-option" value="indie">Indie Music</option>
-      <option class="genre-option" value="hip-hop">Pop Music</option>
+    <label for="user_genre" class="select-genre">Select a Genre</label>
+    <select name="user_genre" class="user-selected-genre">
+      {% for genre in genres %}
+      <option class="genre-option" value="{{ genre.genre_name }}">{{ genre }}</option>
+      {% endfor %}
+    </select>
+    <label for="user_guild" class="select-guild">Join a guild</label>
+    <select name="user_guild" class="user-selected-genre">
+      {% for guild in guilds %}
+      <option class="guild-option" value="{{ guild.guild_name }}">{{ guild }}</option>
+      {% endfor %}
     </select>
     <button class="connect-wallet-btn">Connect Wallet</button>
     <input type="submit" value="Save & Next" class="profile-creation-submit-btn" />
