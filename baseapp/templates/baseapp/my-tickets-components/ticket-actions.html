@@ -1,0 +1,21 @@
+{% extends 'baseapp/my-tickets-tab.html' %}
+
+{% load static %}
+
+{% block my_tickets_tab_content %}
+<a href="{% url 'user-tickets-overview' %}">
+  <button class="go-back-btn">
+    Go Back
+  </button>
+</a> <br>
+<form action="" method="POST">
+  {% csrf_token %}
+  <p class="buy-tickets-btn">{{ selected_user_ticket.type }} | Available {{ selected_user_ticket.num_of_tickets }}</p>
+  <input type="submit" class="buy-tickets-btn" value="Drop Item" name="drop_item" />
+  <input type="submit" class="buy-tickets-btn" value="Use Item" name="use_item" />
+  <input type="submit" class="buy-tickets-btn" value="Sell Back for {{ selected_user_ticket.type.sell_back_price }}💰" name="sell_item" />
+</form>
+{% for message in messages %}
+    <p>{{ message }}</p>
+{% endfor %}
+{% endblock %}

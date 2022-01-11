@@ -182,6 +182,37 @@ def buyTickets(request):
     else:
         return redirect('/')
 
+def ticketActions(request, user_ticket):
+    if request.user.is_authenticated:
+        tickets = UserTicket.objects.all()
+        selected_user_ticket = None
+        for ticket in tickets:
+            if str(ticket) == user_ticket:
+                selected_user_ticket = ticket
+        if request.method == 'POST':
+            if ('drop_item' in request.POST):
+                if (selected_user_ticket.num_of_tickets > 0):
+                    selected_user_ticket.num_of_tickets -= 1
+                    selected_user_ticket.save()
+                    messages.info(request, 'Ticket Item Dropped!')
+                else:
+                    messages.info(request, 'No Such Ticket Item Found!')
+            if ('use_item' in request.POST):
+                pass
+            if ('sell_item' in request.POST):
+                if (selected_user_ticket.num_of_tickets > 0):
+                    selected_user_ticket.num_of_tickets -= 1
+                    user = request.user
+                    user.user_gold += selected_user_ticket.type.sell_back_price
+                    user.save()
+                    selected_user_ticket.save()
+                    messages.info(request, 'Ticket Item Dropped!')
+                else:
+                    messages.info(request, 'No Such Ticket Item Found!')
+            return redirect('ticket-actions', selected_user_ticket)
+        return render(request, 'baseapp/my-tickets-components/ticket-actions.html', { "selected_user_ticket": selected_user_ticket })
+    else:
+        return redirect('/')
 
 def battlesTab(request):
     if request.user.is_authenticated:

@@ -2,13 +2,17 @@
 
 {% load static %}
 
-{% block tab_content %}
+{% block my_tickets_tab_content %}
 <a href="{% url 'buy-tickets' %}">
   <button class="buy-tickets-btn">
     Buy Tickets
   </button>
 </a>
 {% for user_ticket in user_tickets %}
-  <p class="buy-tickets-btn">TICKET TYPE: {{ user_ticket.type }} -------------------- AVAILABLE: {{ user_ticket.num_of_tickets }}</p>
+  {% if user_ticket.num_of_tickets > 0 %}
+    <a href="{% url 'ticket-actions' user_ticket %}">
+      <p class="buy-tickets-btn">TICKET TYPE: {{ user_ticket.type }} -------------------- AVAILABLE: {{ user_ticket.num_of_tickets }}</p>
+    </a>
+  {% endif %}
 {% endfor %}
 {% endblock %}

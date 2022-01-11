@@ -17,6 +17,7 @@ urlpatterns = [
     path('buy-in-tab/', views.buyInTab, name='buy-in-tab'),
     path('my-tickets-tab/', views.myTicketsTab, name='my-tickets-tab'),\
     path('user-tickets-overview/', views.userTicketsOverview, name='user-tickets-overview'),
+    path('ticket-actions/<user_ticket>', views.ticketActions, name='ticket-actions'),
     path('buy-tickets/', views.buyTickets, name='buy-tickets'),
     path('battles-tab/', views.battlesTab, name='battles-tab'),
     path('admin-panel/', views.adminPanel, name="admin-panel"),
