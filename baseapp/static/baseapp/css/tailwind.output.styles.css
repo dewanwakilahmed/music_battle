@@ -1166,6 +1166,48 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(202 138 4 / var(--tw-bg-opacity));
 }
 
+/* MY TICKETS TAB */
+
+.buy-tickets-btn {
+  margin-top: 0.5rem;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(234 88 12 / var(--tw-bg-opacity));
+  padding: 0.5rem;
+}
+
+.buy-tickets-btn:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(249 115 22 / var(--tw-bg-opacity));
+}
+
+.go-back-btn {
+  margin-top: 0.5rem;
+  border-radius: 0.5rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(234 88 12 / var(--tw-bg-opacity));
+  padding: 0.5rem;
+}
+
+.go-back-btn:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(249 115 22 / var(--tw-bg-opacity));
+}
+
+.ticket-item {
+  margin-top: 0.5rem;
+  border-radius: 0.5rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(234 88 12 / var(--tw-bg-opacity));
+  padding: 0.5rem;
+}
+
+.ticket-item:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(249 115 22 / var(--tw-bg-opacity));
+}
+
 /* ADMIN PANEL PAGE */
 
 .admin-panel-background {

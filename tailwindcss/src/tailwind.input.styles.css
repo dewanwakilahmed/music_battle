@@ -449,6 +449,19 @@
   @apply bg-yellow-400 hover:bg-yellow-600 text-center p-4 cursor-pointer rounded-xl;
 }
 
+/* MY TICKETS TAB */
+.buy-tickets-btn {
+  @apply p-2 bg-orange-600 hover:bg-orange-500 rounded-lg mt-2 cursor-pointer;
+}
+
+.go-back-btn {
+  @apply p-2 bg-orange-600 hover:bg-orange-500 rounded-lg mt-2;
+}
+
+.ticket-item {
+  @apply p-2 bg-orange-600 hover:bg-orange-500 rounded-lg mt-2;
+}
+
 /* ADMIN PANEL PAGE */
 
 .admin-panel-background {

@@ -40,11 +40,35 @@ class GuildRank(models.Model):
         return f'{self.guild_rank_name}'
 
 
+class Battle(models.Model):
+    type = models.CharField(max_length=50, blank=True, null=True)
+
+    def __str__(self):
+        return f'{self.type}'
+
+
+class Ticket(models.Model):
+    type = models.ForeignKey(
+        Battle, on_delete=models.CASCADE, blank=True, null=True)
+    price = models.IntegerField(blank=True, null=True)
+    sell_back_price = models.IntegerField(blank=True, null=True)
+
+    def __str__(self):
+        return f'{self.type}'
+
+
+class BuyIn(models.Model):
+    type = models.ForeignKey(
+        Ticket, on_delete=models.CASCADE, blank=True, null=True)
+
+    def __str__(self):
+        return f'{self.type}'
+
+
 class User(AbstractUser):
     user_dob = models.DateField(blank=True, null=True)
     user_image = models.ImageField(upload_to="user-image", null=True)
     user_gold = models.IntegerField(blank=True, null=True)
-    user_tickets = models.CharField(max_length=50, blank=True, null=True)
     user_music = models.CharField(max_length=50, blank=True, null=True)
     user_rank = models.ForeignKey(
         Rank, on_delete=models.CASCADE, blank=True, null=True)
@@ -74,3 +98,25 @@ class GuildLeaderBoard(models.Model):
 
     def __str__(self):
         return f'{self.guild} - {self.guild_rank} - {self.guild_rank_holder}'
+
+
+class UserTicket(models.Model):
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, blank=True, null=True)
+    type = models.ForeignKey(
+        Ticket, on_delete=models.CASCADE, blank=True, null=True)
+    num_of_tickets = models.IntegerField(blank=True, null=True, default=0)
+
+    def __str__(self):
+        return f'{self.user} - {self.type} - {self.num_of_tickets}'
+
+
+class UserBuyIn(models.Model):
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, blank=True, null=True)
+    type = models.ForeignKey(
+        BuyIn, on_delete=models.CASCADE, blank=True, null=True)
+    num_of_buy_ins = models.IntegerField(blank=True, null=True)
+
+    def __str__(self):
+        return f'{self.type} - {self.num_of_buy_ins}'

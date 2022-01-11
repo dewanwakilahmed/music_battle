@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 
-from .models import User, Guild, Rank, GuildRank, Genre
+from .models import User, Guild, Rank, GuildRank, Genre, Ticket, UserTicket
 
 # Create your views here.
 
@@ -145,6 +145,40 @@ def buyInTab(request):
 def myTicketsTab(request):
     if request.user.is_authenticated:
         return render(request, 'baseapp/my-tickets-tab.html')
+    else:
+        return redirect('/')
+
+def userTicketsOverview(request):
+    if request.user.is_authenticated:
+        user_tickets = UserTicket.objects.all()
+        current_user_tickets = user_tickets.filter(user=request.user)
+        return render(request, 'baseapp/my-tickets-components/user-tickets-overview.html', {"user_tickets": current_user_tickets})
+    else:
+        return redirect('/')
+
+def buyTickets(request):
+    if request.user.is_authenticated:
+        tickets = Ticket.objects.all()
+        current_user = User.objects.get(pk=request.user.pk)
+        if request.method == 'POST':
+            for ticket in tickets:
+                if (str(ticket.type) in request.POST):
+                    if current_user.user_gold > ticket.price:
+                        current_user.user_gold -= ticket.price
+                        if UserTicket.objects.filter(user=current_user, type=ticket).exists():
+                            user_ticket = UserTicket.objects.get(user=current_user, type=ticket)                            
+                        else:
+                            user_ticket = UserTicket.objects.create(
+                            user=current_user, type=ticket)
+                        user_ticket.num_of_tickets += 1
+                        user_ticket.save()
+                        current_user.save()
+                        messages.info(
+                        request, 'Ticket Purchased!')
+                    return redirect('buy-tickets')
+            current_user.save()
+                
+        return render(request, 'baseapp/my-tickets-components/buy-tickets.html', {"tickets": tickets})
     else:
         return redirect('/')
 

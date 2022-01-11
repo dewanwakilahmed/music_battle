@@ -1,0 +1,14 @@
+{% extends 'baseapp/my-tickets-tab.html' %}
+
+{% load static %}
+
+{% block tab_content %}
+<a href="{% url 'buy-tickets' %}">
+  <button class="buy-tickets-btn">
+    Buy Tickets
+  </button>
+</a>
+{% for user_ticket in user_tickets %}
+  <p class="buy-tickets-btn">TICKET TYPE: {{ user_ticket.type }} -------------------- AVAILABLE: {{ user_ticket.num_of_tickets }}</p>
+{% endfor %}
+{% endblock %}
