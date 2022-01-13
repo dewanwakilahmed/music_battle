@@ -68,7 +68,7 @@ class BuyIn(models.Model):
 class User(AbstractUser):
     user_dob = models.DateField(blank=True, null=True)
     user_image = models.ImageField(upload_to="user-image", null=True)
-    user_gold = models.IntegerField(blank=True, null=True)
+    user_gold = models.IntegerField(blank=True, null=True, default=100)
     user_music = models.CharField(max_length=50, blank=True, null=True)
     user_rank = models.ForeignKey(
         Rank, on_delete=models.CASCADE, blank=True, null=True)
@@ -108,7 +108,7 @@ class UserTicket(models.Model):
     num_of_tickets = models.IntegerField(blank=True, null=True, default=0)
 
     def __str__(self):
-        return f'{self.user} - {self.type} - {self.num_of_tickets}'
+        return f'{self.type}'
 
 
 class UserBuyIn(models.Model):
@@ -119,4 +119,4 @@ class UserBuyIn(models.Model):
     num_of_buy_ins = models.IntegerField(blank=True, null=True)
 
     def __str__(self):
-        return f'{self.type} - {self.num_of_buy_ins}'
+        return f'{self.type}'

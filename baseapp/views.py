@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 
-from .models import User, Guild, Rank, GuildRank, Genre, Ticket, UserTicket
+from .models import User, Guild, Rank, GuildRank, Genre, Ticket, UserTicket, BuyIn
 
 # Create your views here.
 
@@ -141,6 +141,34 @@ def buyInTab(request):
     else:
         return redirect('/')
 
+def userBuyInOverview(request):
+    if request.user.is_authenticated:
+        buy_ins = BuyIn.objects.all()
+        if request.method == 'POST':
+            for buy_in in buy_ins:
+                if str(buy_in) in request.POST:
+                    user_buy_in = buy_in
+                    return redirect('buy-in-actions', user_buy_in)
+        return render(request, 'baseapp/buy-in-components/user-buy-in-overview.html', { "buy_ins": buy_ins })
+    else:
+        return redirect('/')
+
+def buyInActions(request, user_buy_in):
+    if request.user.is_authenticated:
+        user_tickets = UserTicket.objects.all()
+        current_user_tickets = user_tickets.filter(user=request.user)
+        buy_ins = BuyIn.objects.all()
+        buy_in_item = None
+        available_ticket = None
+        for buy_in in buy_ins:
+                if str(buy_in) == user_buy_in:
+                    buy_in_item = buy_in
+        for current_user_ticket in current_user_tickets:
+            if str(current_user_ticket.type) in user_buy_in:
+                available_ticket = current_user_ticket
+        return render(request, 'baseapp/buy-in-components/buy-in-actions.html', { "available_ticket": available_ticket, "buy_in_item": buy_in_item })
+    else:
+        return redirect('/')
 
 def myTicketsTab(request):
     if request.user.is_authenticated:
@@ -152,7 +180,7 @@ def userTicketsOverview(request):
     if request.user.is_authenticated:
         user_tickets = UserTicket.objects.all()
         current_user_tickets = user_tickets.filter(user=request.user)
-        return render(request, 'baseapp/my-tickets-components/user-tickets-overview.html', {"user_tickets": current_user_tickets})
+        return render(request, 'baseapp/my-tickets-components/user-tickets-overview.html', { "user_tickets": current_user_tickets })
     else:
         return redirect('/')
 
@@ -182,13 +210,14 @@ def buyTickets(request):
     else:
         return redirect('/')
 
-def ticketActions(request, user_ticket):
+def ticketActions(request, selected_ticket):
     if request.user.is_authenticated:
-        tickets = UserTicket.objects.all()
+        user_tickets = UserTicket.objects.all()
         selected_user_ticket = None
-        for ticket in tickets:
-            if str(ticket) == user_ticket:
-                selected_user_ticket = ticket
+        for user_ticket in user_tickets:
+            if str(user_ticket) == selected_ticket:
+                selected_user_ticket = user_ticket
+                print(selected_user_ticket)
         if request.method == 'POST':
             if ('drop_item' in request.POST):
                 if (selected_user_ticket.num_of_tickets > 0):

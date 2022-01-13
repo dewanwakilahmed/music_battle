@@ -1,0 +1,12 @@
+{% extends 'baseapp/buy-in-tab.html' %}
+
+{% load static %}
+
+{% block buy_ins_tab_content %}
+<div class="buy-in-item">
+<a href="" class="buy-with-gold">Click here to buy in with {{ buy_in_item.type.price }}💰</a> <br>
+  {% if available_ticket.num_of_tickets > 0 %}
+    <a href="" class="tickets-available">{{ available_ticket.num_of_tickets }} Tickets are alredy Available. Use them to Buy In instead!</a>
+  {% endif %}
+</div>
+{% endblock %}

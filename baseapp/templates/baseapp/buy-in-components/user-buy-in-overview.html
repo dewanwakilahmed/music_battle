@@ -1,0 +1,12 @@
+{% extends 'baseapp/buy-in-tab.html' %}
+
+{% load static %}
+
+{% block buy_ins_tab_content %}
+<form action="" method="POST">
+  {% csrf_token %}
+  {% for buy_in in buy_ins %}
+  <input type="submit" name="{{ buy_in }}" class="buy-in-item" value="{{ buy_in.type.type }}" />
+  {% endfor %}
+</form>
+{% endblock %}

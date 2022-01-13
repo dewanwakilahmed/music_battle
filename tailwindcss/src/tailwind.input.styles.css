@@ -462,6 +462,19 @@
   @apply p-2 bg-orange-600 hover:bg-orange-500 rounded-lg mt-2;
 }
 
+/* BUY IN TAB */
+.buy-in-item {
+  @apply p-2 bg-violet-800 hover:bg-violet-700 rounded-md hover:cursor-pointer;
+}
+
+.buy-with-gold {
+  @apply hover:text-neutral-900 hover:underline;
+}
+
+.tickets-available {
+  @apply hover:text-neutral-900 hover:underline;
+}
+
 /* ADMIN PANEL PAGE */
 
 .admin-panel-background {
